@@ -84,6 +84,10 @@ mongoose.connect(process.env.MONGO_URI ,{
     console.error('Error connecting to MongoDB', err);
   });
 
+  app.get('/', (req, res) => {
+    res.send('Welcome to the DUET Robotics Club!');
+  });
+
   // Basic route to test the server
   app.use("/api/team", teamRouter);
   app.use("/api/achive", achiveRouter);
