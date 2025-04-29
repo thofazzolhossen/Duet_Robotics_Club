@@ -1,0 +1,120 @@
+.homeslider {
+    position: relative;
+    width: 100%;
+    max-width: auto;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  .slider-wrapper {
+    display: flex;
+    transition: transform 0.1s ease-in-out;
+  }
+  
+  .slide {
+    min-width: 100%;
+    position: relative;
+  }
+  
+  .slide-image {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .slide-content {
+    position: absolute;
+    top: 50%;
+    left: 70px;
+    transform: translateY(-50%);
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  .fade-in .slide-content {
+    opacity: 1;
+    transform: translateX(0); /* Slide in from the left */
+  }
+  
+  .fade-out .slide-content {
+    opacity: 0;
+    transform: translateX(-20px); /* Slide out to the left */
+  }
+  
+  /* Transition for each part of the content */
+  .fade-in h1, .fade-in p {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .fade-out h1, .fade-out p {
+    opacity: 0;
+    transform: translateY(-20px); /* Slide up slightly when fading out */
+  }
+  
+  /* Add staggered effect for h1 and p */
+  .slide-content h1 {
+    margin: 0;
+    font-size: 24px;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  .slide-content p {
+    margin: 5px 0 0;
+    font-size: 16px;
+    opacity: 0;
+    transform: translateY(-20px); /* Initially hide p */
+    transition: opacity 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out 0.2s; /* Delay for the p */
+  }
+  
+  .prev-button,
+  .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(24, 233, 215, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 15px; /* Increased padding for a larger circle */
+    border-radius: 50%; /* This makes the button round */
+    z-index: 10;
+    width: 50px; /* Explicit width for the button */
+    height: 50px; /* Explicit height for the button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px; /* Adjust font size for the arrow */
+  }
+  
+  .prev-button {
+    left: 10px;
+  }
+  
+  .next-button {
+    right: 10px;
+  }
+  
+  .indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .indicator {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: rgb(41, 247, 236);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .indicator.active {
+    background-color: black;
+  }
+  
